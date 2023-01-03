@@ -1,0 +1,55 @@
+#! /bin/sh
+
+bspc monitor -d 1 2 3 4 5 6
+
+bspc config border_width			    4
+bspc config window_gap				    10
+
+bspc config split_ratio				    0.5
+bspc config single_monocle			  false
+bspc config focus_follows_pointer	true
+bspc config borderless_monocle		true
+bspc config gapless_monocle			  true
+
+bspc config focused_border_color	"#BD93F9"
+bspc config normal_border_color		"#282A36"
+bspc config active_border_color		"#8BE9FD"
+bspc config presel_feedback_color	"#50FA7B"
+
+## Rules
+# bspc rule -a Firefox-esr desktop='^1' follow=on
+# bspc rule -a Geany desktop='^4' follow=on
+# bspc rule -a Pcmanfm desktop='^5' follow=on
+
+bspc rule -a qimgv state=floating center=true
+bspc rule -a Pavucontrol state=floating center=true
+bspc rule -a Blueman-manager state=floating center=true
+bspc rule -a gimp state=floating center=true
+
+#bspc rule -a "*" split_dir=east
+
+## Notifications
+#dunst &
+
+## Compositor
+#picom --config ~/.config/picom/picom.conf &
+
+## Background
+#feh --bg-fill ~/.config/backgrounds/umbrella.png &
+
+## Keybinding daemon
+sxhkd &
+
+## Polybar or tint
+#~/bin/polybar-launch &
+# tint2 &
+
+## Clipmemu start
+#clipmenud &
+
+## apps for systray if enabled
+# volumeicon &
+# nm-applet &
+
+#Scratchpads
+#bspc rule -a scpad sticky=on state=floating rectangle=1200x800+450+100
